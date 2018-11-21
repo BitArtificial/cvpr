@@ -58,12 +58,9 @@ def download(content,year_num,book_url_list,save_dir):
                         f.write(chunk)
                         f.flush
             r.close()
-        except KeyboardInterrupt:
-            key_interrupt=1
+        except Exception:
             if os.path.exists(ab_name):
                 os.remove(ab_name)
-            return key_interrupt
-        except Exception:
             key_interrupt=1
             return key_interrupt
     print('{} content of {} year has downloaded successfully'.format(content,year))
